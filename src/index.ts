@@ -5,7 +5,7 @@ import staticFiles from '@fastify/static'
 import handlebars from 'handlebars'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
-import { moonphase } from './moon/moon'
+import { moonphase } from './moon/moon.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
