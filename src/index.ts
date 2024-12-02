@@ -6,6 +6,7 @@ import handlebars from 'handlebars'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { moonphase } from './moon/moon.js'
+import { imageForPhase } from './moon/image.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -28,9 +29,11 @@ async function buildServer() {
     })
 
     server.get('/', async (request, reply) => {
+        const phase = moonphase(new Date())
         return reply.view('index.hbs', {
             title: 'Moon Phase Tracker',
-            moonphase: moonphase(new Date())
+            moonphase: phase,
+            image: imageForPhase(phase)
         })
     })
 
