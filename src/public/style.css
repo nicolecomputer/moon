@@ -1,0 +1,82 @@
+html {
+    height: 100%;
+    display: flex;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    flex: 1;
+
+    background: rgb(51, 65, 145);
+    background: linear-gradient(4deg, rgba(51, 65, 145, 1) 0%, rgba(49, 47, 105, 1) 38%, rgba(9, 22, 25, 1) 96%);
+
+    color: white;
+    font-size: 72;
+    text-align: center;
+    overflow: hidden;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    right: -20vh;
+    left: -20vh;
+    bottom: -20vh;
+    height: 80vh;
+    border-radius: 60%;
+    background-color: black;
+
+    z-index: 3;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0.8em);
+        opacity: 0%;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
+
+h2 {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    font-size: clamp(60px, 10vw, 84px);
+    perspective: 400px;
+
+    opacity: 0%;
+    animation: rise 4s ease-in-out;
+    animation-fill-mode: forwards;
+    text-shadow: 2px 2px 4px black;
+    z-index: 2;
+}
+
+@keyframes moonEntrance {
+    from {
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+
+img {
+    position: absolute;
+    top: 40px;
+    z-index: 1;
+    width: 40%;
+
+    opacity: 0%;
+    animation: moonEntrance 2s ease-in 2s;
+    animation-fill-mode: forwards;
+}
