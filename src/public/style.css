@@ -9,6 +9,8 @@ html {
 }
 
 body {
+    padding-top: env(safe-area-inset-top);
+
     flex: 1;
 
     background: rgb(51, 65, 145);
