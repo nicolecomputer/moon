@@ -72,7 +72,7 @@ h2 {
     }
 }
 
-img {
+#moon {
     position: absolute;
     top: 40px;
     z-index: 1;
@@ -81,4 +81,28 @@ img {
     opacity: 0%;
     animation: moonEntrance 2s ease-in 2s;
     animation-fill-mode: forwards;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.star {
+    z-index: 0;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    animation: twinkle var(--twinkle-duration) ease-in-out infinite;
+    animation-delay: var(--twinkle-delay);
 }

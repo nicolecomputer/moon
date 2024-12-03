@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -8,10 +9,33 @@
     <title>{{title}}</title>
     <link rel="stylesheet" href="/public/style.css">
 </head>
+
 <body>
     <main id="scene">
+        <img src="/public/star.svg" class="star">
         <h2>{{moonphase}}</h2>
-        <img src="{{image}}" alt="The moon" />
+        <img src="{{image}}" alt="The moon" id="moon" />
     </main>
+
+    <script>
+        function getRandomInRange(min, max) {
+            const minCeiled = Math.ceil(min);
+            const maxFloored = Math.floor(max);
+            return Math.random() * (maxFloored - minCeiled) + minCeiled;
+        }
+
+        var star = document.getElementsByClassName('star')[0];
+
+        for (let i = 0; i < 100; i++) {
+            var next = star.cloneNode(true);
+            next.style.top = `${getRandomInRange(0, 40)}%`
+            next.style.left = `${getRandomInRange(0, 100)}%`
+            next.style.scale = `${getRandomInRange(30, 100)}%`
+            next.style.setProperty('--twinkle-duration', `${getRandomInRange(1, 3)}s`);
+            next.style.setProperty('--twinkle-delay', `${getRandomInRange(0, 2)}s`);
+            document.body.append(next)
+        }
+    </script>
 </body>
+
 </html>
